@@ -1,0 +1,43 @@
+---
+---
+
+<section id="about" class="py-28 px-4 bg-charcoal relative overflow-hidden">
+  <div class="absolute right-[-200px] top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+       style="background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);">
+  </div>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+    <!-- Text -->
+    <div>
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">Sobre nosotros</p>
+      <h2 class="font-cormorant font-light text-soft leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+        Arte &amp; <em class="text-gold">belleza</em><br>en cada detalle
+      </h2>
+      <div class="w-12 h-px bg-gold my-6"></div>
+      <p class="text-soft/65 text-sm leading-loose mb-5">
+        En Spade Beauty Center creemos que la belleza es un arte. Cada servicio está pensado para realzar tu esencia natural con técnicas de vanguardia y productos de primera calidad.
+      </p>
+      <p class="text-soft/65 text-sm leading-loose mb-5">
+        Nuestro equipo especializado en Girardot te brinda una experiencia única, donde la precisión y el cuidado se combinan para resultados que duran y sorprenden.
+      </p>
+      <p class="text-soft/65 text-sm leading-loose">
+        Con garantía en todos nuestros servicios, tu satisfacción es nuestra prioridad.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 gap-8">
+      {[
+        { n: '14+', label: 'Servicios disponibles' },
+        { n: '3D',  label: 'Garantía en todos' },
+        { n: '6D',  label: 'Efecto máximo pestañas' },
+        { n: '100%',label: 'Dedicación y amor' },
+      ].map(s => (
+        <div class="stat-card border border-[rgba(201,168,76,0.2)] p-8 pl-6 hover:border-[rgba(201,168,76,0.5)] transition-colors">
+          <div class="font-cormorant text-5xl text-gold font-light leading-none">{s.n}</div>
+          <div class="text-xs tracking-widest uppercase text-soft/50 mt-2">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

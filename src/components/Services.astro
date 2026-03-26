@@ -1,0 +1,181 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const unas = [
+  {
+    name: 'Press On / Soft Gel',
+    desc: 'Sistema perfecto para extensión con aspecto resistente y elegante. Duración de 3 a 4 semanas según cuidado.',
+    price: '$90.000', duration: '1:30hr – 2:00hr aprox', retoque: 'Cada 20 días',
+    includes: ['La decoración que desees', 'Efectos y apliques 3D'],
+    guarantee: 'Garantía 3 días', image: '/images/unas-press-on.jpg',
+  },
+  {
+    name: 'Acrílicas / Tech Gel Esculpidas',
+    desc: 'Sistema premium para extensión con aspecto resistente y elegante. Duración de 3 a 4 semanas según cuidado.',
+    price: '$120.000', duration: '3:30hr – 4:30hr aprox', retoque: 'Cada 20 días',
+    includes: ['La decoración que desees', 'Efectos y apliques 3D'],
+    guarantee: 'Garantía 3 días', image: '/images/unas-acrilicas.jpg',
+  },
+  {
+    name: 'Baño en Tech Gel',
+    desc: 'Ideal para uñas naturales largas. Fortalece tus uñas para que no se rompan. Duración 3–4 semanas.',
+    price: '$70.000', duration: '2:00hr – 2:30hr aprox',
+    includes: ['La decoración que desees', 'Efectos y apliques 3D'],
+    guarantee: 'Garantía 3 días', image: '/images/unas-bano-tech.jpg',
+  },
+  {
+    name: 'Baño en Acrílico',
+    desc: 'Ideal para todo tipo de uña. Fortalece y nivela irregularidades para un aspecto más perfecto. Duración 3–4 semanas.',
+    price: '$65.000', duration: '1:30hr – 2:00hr aprox',
+    includes: ['La decoración que desees', 'Efectos y apliques 3D'],
+    guarantee: 'Garantía 3 días', image: '/images/unas-bano-acrilico.jpg',
+  },
+  {
+    name: 'Nivelación en Rubber',
+    desc: 'Ideal para uñas que se tienden a quebrar. Nivela irregularidades para un aspecto más perfecto. Duración 3–4 semanas.',
+    price: '$70.000', duration: '1:30hr – 2:00hr aprox',
+    includes: ['La decoración que desees', 'Efectos y apliques 3D'],
+    guarantee: 'Garantía 3 días', image: '/images/unas-rubber.jpg',
+  },
+  {
+    name: 'Semipermanente',
+    desc: 'Esmaltado sobre tu uña natural con duración de 15–20 días. Terminado brillante o mate.',
+    price: '$42.000', duration: '60min – 1:20hr aprox',
+    includes: ['La decoración que desees', 'Efectos y apliques 3D'],
+    guarantee: 'Garantía 3 días', image: '/images/unas-semipermanente.jpg',
+  },
+];
+
+const pestanas = [
+  {
+    name: 'Punto a Punto',
+    desc: 'Grupos de pestañas sintéticas de 3–5 pelos (0.18–0.25 mm) en tallas S, M y L.',
+    price: '$40.000', duration: '30min – 1:00hr aprox',
+    badges: ['Sin retoque', '15-20 días duración'],
+    image: '/images/pestanas-punto.jpg',
+  },
+  {
+    name: 'Efecto Natural / Húmedo',
+    desc: 'Extensiones diseñadas para un aspecto delicado y auténtico. Se aplican una a una imitando el crecimiento natural.',
+    price: '$100.000', duration: '1:00hr – 1:30hr aprox', retoque: 'Recomendado cada 15 días',
+    badges: ['1 mes duración'],
+    image: '/images/pestanas-natural.jpg',
+  },
+  {
+    name: 'Efecto Wispy',
+    desc: 'Aspecto más ligero con puntas destacadas y espaciadas. Extensiones de distinta longitud y grosor.',
+    price: '$130.000', duration: '2:00hr – 2:30hr aprox',
+    badges: ['Sin retoque', '1 mes duración'],
+    image: '/images/pestanas-wispy.jpg',
+  },
+  {
+    name: 'Fibras Tecnológicas 3D',
+    desc: 'Max Volume 3D. Proporciona mayor volumen y espesor. 3 pestañas extrafinas por cada pestaña natural.',
+    price: '$130.000', duration: '2:00hr – 2:30hr aprox',
+    badges: ['Sin retoque', '1 mes duración'],
+    image: '/images/pestanas-3d.jpg',
+  },
+  {
+    name: 'Fibras Tecnológicas 4D',
+    desc: 'Max Volume 4D. Efecto dramático y multidimensional. 4 pestañas extrafinas por cada pestaña natural.',
+    price: '$140.000', duration: '2:00hr – 2:30hr aprox',
+    badges: ['Sin retoque', '1 mes duración'],
+    image: '/images/pestanas-4d.jpg',
+  },
+  {
+    name: 'Fibras Tecnológicas 5D',
+    desc: 'Max Volume 5D. Efecto denso y natural. 5 pestañas extrafinas por cada pestaña natural. Diseño en "W".',
+    price: '$150.000', duration: '2:00hr – 2:30hr aprox',
+    badges: ['Sin retoque', '1 mes duración'],
+    image: '/images/pestanas-5d.jpg',
+  },
+  {
+    name: 'Fibras Tecnológicas 6D',
+    desc: 'El máximo volumen. 6 extensiones ultrafinas por pestaña natural. El look más dramático e impactante.',
+    price: '$160.000', duration: '2:00hr – 2:30hr aprox',
+    badges: ['Sin retoque', '1 mes duración'],
+    image: '/images/pestanas-6d.jpg',
+  },
+  {
+    name: 'Efecto Hawaiano',
+    desc: 'Acabado más abierto y felino, ideal para una mirada impactante. Abanicos pre-armados para resultado uniforme.',
+    price: '$120.000', duration: '2:00hr – 2:30hr aprox',
+    badges: ['Sin retoque', '1 mes duración'],
+    image: '/images/pestanas-hawaiano.jpg',
+  },
+];
+---
+
+<section id="servicios" class="py-28 px-4 bg-dark">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">Lo que hacemos</p>
+      <h2 class="font-cormorant font-light text-soft leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+        Nuestros <em class="text-gold">servicios</em>
+      </h2>
+      <div class="w-12 h-px bg-gold mx-auto mt-6"></div>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="flex border border-[rgba(201,168,76,0.2)] w-fit mx-auto mb-14">
+      <button id="btn-unas" onclick="showCat('unas')"
+              class="cat-btn active px-10 py-3.5 text-xs tracking-widest uppercase font-medium font-montserrat border-r border-[rgba(201,168,76,0.2)] cursor-pointer transition-all bg-gold text-dark">
+        ♠ Uñas
+      </button>
+      <button id="btn-pestanas" onclick="showCat('pestanas')"
+              class="cat-btn px-10 py-3.5 text-xs tracking-widest uppercase font-medium font-montserrat cursor-pointer transition-all bg-transparent text-soft/50 hover:bg-gold hover:text-dark">
+        ♠ Pestañas
+      </button>
+    </div>
+
+    <!-- Uñas grid -->
+    <div id="panel-unas" class="grid md:grid-cols-2 lg:grid-cols-3 gap-px">
+      {unas.map(s => <ServiceCard {...s} />)}
+    </div>
+
+    <!-- Pestañas grid -->
+    <div id="panel-pestanas" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-px">
+      {pestanas.map(s => <ServiceCard {...s} />)}
+
+      <!-- Care note -->
+      <div class="col-span-full bg-[rgba(201,168,76,0.04)] border border-[rgba(201,168,76,0.2)] p-8">
+        <p class="text-gold text-xs tracking-widest uppercase mb-4">Cuidados y recomendaciones — Todas las pestañas</p>
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            { icon: '💧', text: 'Evita mojarlas durante las primeras 24 horas' },
+            { icon: '🚫', text: 'No uses rímel ni rizador' },
+            { icon: '🪮', text: 'Limpia las pestañas con un cepillo suave' },
+          ].map(c => (
+            <div class="flex items-start gap-3">
+              <span class="text-xl">{c.icon}</span>
+              <p class="text-soft/60 text-xs leading-relaxed">{c.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function showCat(cat: string) {
+    const panels = ['unas', 'pestanas'];
+    panels.forEach(p => {
+      const panel = document.getElementById(`panel-${p}`);
+      const btn   = document.getElementById(`btn-${p}`);
+      if (p === cat) {
+        panel?.classList.remove('hidden');
+        btn?.classList.add('bg-gold', 'text-dark');
+        btn?.classList.remove('bg-transparent', 'text-soft/50');
+      } else {
+        panel?.classList.add('hidden');
+        btn?.classList.remove('bg-gold', 'text-dark');
+        btn?.classList.add('bg-transparent', 'text-soft/50');
+      }
+    });
+  }
+  (window as any).showCat = showCat;
+</script>

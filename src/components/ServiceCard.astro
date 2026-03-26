@@ -1,0 +1,59 @@
+---
+export interface Props {
+  name: string;
+  desc: string;
+  price: string;
+  duration: string;
+  retoque?: string;
+  duracionProducto?: string;
+  includes?: string[];
+  guarantee?: string;
+  image: string;
+  badges?: string[];
+}
+const { name, desc, price, duration, retoque, duracionProducto, includes, guarantee, image, badges } = Astro.props;
+---
+
+<div class="service-card bg-charcoal border border-[rgba(201,168,76,0.08)] hover:bg-[#222] transition-colors cursor-pointer group">
+  <img src={image} alt={name} class="w-full h-48 object-cover block group-hover:brightness-100 brightness-90 transition-all" loading="lazy" />
+  <div class="p-8">
+    <h3 class="font-cormorant text-2xl text-soft font-normal leading-tight mb-3">{name}</h3>
+    <p class="text-soft/50 text-xs leading-relaxed mb-5">{desc}</p>
+
+    <div class="flex flex-col gap-1 mb-5">
+      <p class="text-soft/40 text-xs"><span class="text-soft/65">⏱ Servicio:</span> {duration}</p>
+      {retoque && <p class="text-soft/40 text-xs"><span class="text-soft/65">🔄 Retoque:</span> {retoque}</p>}
+      {duracionProducto && <p class="text-soft/40 text-xs"><span class="text-soft/65">📅 Duración:</span> {duracionProducto}</p>}
+    </div>
+
+    {includes && includes.length > 0 && (
+      <div class="border-t border-[rgba(201,168,76,0.1)] pt-4 mb-5">
+        <p class="text-gold text-xs tracking-widest uppercase mb-2">Incluye</p>
+        <ul class="list-none space-y-1">
+          {includes.map(i => (
+            <li class="text-soft/50 text-xs flex items-center gap-2">
+              <span class="text-gold text-[0.55rem]">♠</span>{i}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {badges && badges.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {badges.map(b => (
+          <span class="text-xs border border-[rgba(201,168,76,0.25)] text-soft/45 px-2 py-0.5 tracking-wider uppercase">{b}</span>
+        ))}
+      </div>
+    )}
+
+    <div class="flex items-center justify-between mt-4">
+      <div class="font-cormorant text-3xl text-gold font-light">
+        {price} <small class="text-sm text-gold/60">COP</small>
+      </div>
+      {guarantee && (
+        <div class="text-xs tracking-widest uppercase text-soft/30 border border-soft/15 px-2 py-1">{guarantee}</div>
+      )}
+    </div>
+  </div>
+</div>

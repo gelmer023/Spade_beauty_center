@@ -1,0 +1,17 @@
+---
+import '../styles/global.css';
+const { title = 'Spade Beauty Center – Girardot' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content="Spade Beauty Center – Keratinas, Uñas, Pestañas y más en Girardot, Colombia." />
+  <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

@@ -1,0 +1,45 @@
+---
+const WA_LINK = "https://wa.me/573105164565?text=Hola%20quiero%20m%C3%A1s%20informaci%C3%B3n%20y%20agendar%20un%20servicio";
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-16 py-5 bg-[rgba(17,17,17,0.85)] backdrop-blur-md border-b border-[rgba(201,168,76,0.2)] transition-all duration-300">
+  <a href="#hero" class="flex items-center gap-3 no-underline">
+    <svg class="w-10 h-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="#2A2A2A" stroke="#C9A84C" stroke-width="2"/>
+      <path d="M50 15 C50 15 20 38 20 55 C20 65 28 70 38 67 C34 73 32 80 28 85 L72 85 C68 80 66 73 62 67 C72 70 80 65 80 55 C80 38 50 15 50 15Z" fill="url(#navGold)" />
+      <defs>
+        <linearGradient id="navGold" x1="20" y1="15" x2="80" y2="85" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#E2C97E"/>
+          <stop offset="50%" stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#9A7A2E"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="font-cormorant text-xl font-semibold tracking-widest text-gold uppercase">Spade Beauty</span>
+  </a>
+
+  <ul class="hidden md:flex gap-10 list-none">
+    <li><a href="#about" class="text-soft/70 no-underline text-xs tracking-widest uppercase font-medium hover:text-gold transition-colors">Nosotros</a></li>
+    <li><a href="#servicios" class="text-soft/70 no-underline text-xs tracking-widest uppercase font-medium hover:text-gold transition-colors">Servicios</a></li>
+    <li><a href="#contacto" class="text-soft/70 no-underline text-xs tracking-widest uppercase font-medium hover:text-gold transition-colors">Contacto</a></li>
+  </ul>
+
+  <a href={WA_LINK} target="_blank"
+     class="border border-gold text-gold px-5 py-2 text-xs tracking-widest uppercase font-medium font-montserrat no-underline hover:bg-gold hover:text-dark transition-all">
+    Agendar cita
+  </a>
+</nav>
+
+<script>
+  // Shrink nav on scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav?.classList.add('py-3');
+      nav?.classList.remove('py-5');
+    } else {
+      nav?.classList.add('py-5');
+      nav?.classList.remove('py-3');
+    }
+  });
+</script>
